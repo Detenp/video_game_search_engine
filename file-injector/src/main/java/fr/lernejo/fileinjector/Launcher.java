@@ -21,7 +21,6 @@ public class Launcher {
     public static void main(String[] args) throws IOException {
         try (AbstractApplicationContext springContext = new AnnotationConfigApplicationContext(Launcher.class)) {
             System.out.println("Hello after starting Spring");
-
             if (args.length >= 1) {
                 ObjectMapper mapper = new ObjectMapper();
 
