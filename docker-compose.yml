@@ -17,3 +17,5 @@ services:
             - discovery.type=single-node
             - xpack.security.enabled=true
             - ELASTIC_PASSWORD=admin
+            - bootstrap.memory_lock=true
+            - "ES_JAVA_OPTS=-Xms256m -Xmx512m"
