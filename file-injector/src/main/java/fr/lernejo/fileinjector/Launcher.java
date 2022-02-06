@@ -30,9 +30,8 @@ public class Launcher {
 
                 RabbitTemplate rt = springContext.getBean(RabbitTemplate.class);
                 for (MessageObject message: messages) {
-                    Logger.getLogger("Launcher").log(Level.ALL, message.id() + "");
-                    rt.convertAndSend("game_info", mapper.writeValueAsString(message), m -> {
-                        rt.setMessageConverter(new Jackson2JsonMessageConverter());
+                    rt.setMessageConverter(new Jackson2JsonMessageConverter());
+                    rt.convertAndSend("game_info", message, m -> {
                         m.getMessageProperties().getHeaders().put( "game_id", message.id());
                         return m;
                     });

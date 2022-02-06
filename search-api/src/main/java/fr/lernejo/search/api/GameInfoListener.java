@@ -10,6 +10,8 @@ import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Component
 public class GameInfoListener {
@@ -25,6 +27,7 @@ public class GameInfoListener {
             .id(id)
             .source(message, XContentType.JSON);
 
+        Logger.getLogger("popo").log(Level.ALL, message);
         this.client.index(request, RequestOptions.DEFAULT);
     }
 }

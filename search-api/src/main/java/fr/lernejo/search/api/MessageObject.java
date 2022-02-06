@@ -1,7 +1,8 @@
-package fr.lernejo.fileinjector;
+package fr.lernejo.search.api;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+@JsonSerialize
 record MessageObject(int id,
                      String title,
                      String thumbnail,
